@@ -1,0 +1,66 @@
+{
+  "version": "1",
+  "name": "summer-promo",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "background": "#000000"
+  },
+  "layers": [
+    {
+      "id": "slkt4f",
+      "name": "gradient layer",
+      "type": "gradient",
+      "visible": true,
+      "opacity": 1,
+      "gradient_type": "linear",
+      "gradient_stops": [
+        {
+          "color": "#ff6b35",
+          "position": 0
+        },
+        {
+          "color": "#f72585",
+          "position": 1
+        }
+      ],
+      "gradient_angle": 160,
+      "filters": [
+        {
+          "type": "vignette",
+          "params": {
+            "strength": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "upn8q6",
+      "name": "shape layer",
+      "type": "shape",
+      "visible": true,
+      "opacity": 1,
+      "x": 600,
+      "y": -200,
+      "width": 800,
+      "height": 800,
+      "shape": "circle",
+      "fill": "#ffffff15"
+    },
+    {
+      "id": "sqbjoo",
+      "name": "text layer",
+      "type": "text",
+      "visible": true,
+      "opacity": 1,
+      "x": 100,
+      "y": 780,
+      "color": "#ffffff",
+      "content": "SUMMER SALE",
+      "font": "Anton",
+      "font_size": 120
+    }
+  ],
+  "created_at": "2026-03-20T16:24:05.38491-04:00",
+  "updated_at": "2026-03-20T16:28:55.627672-04:00"
+}

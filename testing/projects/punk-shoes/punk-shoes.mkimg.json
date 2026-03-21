@@ -1,0 +1,171 @@
+{
+  "version": "1",
+  "name": "punk-shoes",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "background": "#0a0a0a"
+  },
+  "layers": [
+    {
+      "id": "ohdksj",
+      "name": "punk-glow",
+      "type": "gradient",
+      "visible": true,
+      "opacity": 0.4,
+      "gradient_type": "radial",
+      "gradient_stops": [
+        {
+          "color": "#ff0055",
+          "position": 0
+        },
+        {
+          "color": "#0a0a0a",
+          "position": 1
+        }
+      ],
+      "filters": [
+        {
+          "type": "noise",
+          "params": {
+            "amount": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "qd1xp0",
+      "name": "punk-boot",
+      "type": "ai",
+      "visible": true,
+      "opacity": 1,
+      "x": 140,
+      "y": 450,
+      "width": 800,
+      "height": 800,
+      "source": "ai_vbgjov.png",
+      "ai_prompt": "A single punk rock combat boot with metal studs, spikes, and safety pins, black leather with hot pink accents and paint splatter, floating against a pure black background, dramatic studio lighting from below, product photography, high contrast, edgy fashion",
+      "aspect_ratio": "1:1",
+      "filters": [
+        {
+          "type": "contrast",
+          "params": {
+            "value": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "4zqkff",
+      "name": "stripe-top",
+      "type": "shape",
+      "visible": true,
+      "opacity": 0.85,
+      "x": -200,
+      "y": 380,
+      "width": 1600,
+      "height": 80,
+      "rotation": -8,
+      "shape": "rect",
+      "fill": "#ff0055"
+    },
+    {
+      "id": "kmn93c",
+      "name": "brand-name",
+      "type": "text",
+      "visible": true,
+      "opacity": 1,
+      "x": 540,
+      "y": 180,
+      "color": "#ffffff",
+      "content": "REVOLT",
+      "font": "Anton",
+      "font_size": 160,
+      "align": "center"
+    },
+    {
+      "id": "xokoz7",
+      "name": "sub-brand",
+      "type": "text",
+      "visible": true,
+      "opacity": 1,
+      "x": 540,
+      "y": 330,
+      "color": "#ff0055",
+      "content": "FOOTWEAR",
+      "font": "Anton",
+      "font_size": 60,
+      "align": "center"
+    },
+    {
+      "id": "19on4j",
+      "name": "tagline",
+      "type": "text",
+      "visible": true,
+      "opacity": 1,
+      "x": 540,
+      "y": 1350,
+      "color": "#ffffff",
+      "content": "BREAK THE RULES.",
+      "font": "Permanent Marker",
+      "font_size": 50,
+      "align": "center"
+    },
+    {
+      "id": "88o1q1",
+      "name": "cta",
+      "type": "text",
+      "visible": true,
+      "opacity": 1,
+      "x": 540,
+      "y": 1470,
+      "color": "#ff0055",
+      "content": "DROPPING 04.01.26",
+      "font": "Anton",
+      "font_size": 40,
+      "align": "center"
+    },
+    {
+      "id": "eqp8g1",
+      "name": "stripe-bottom",
+      "type": "shape",
+      "visible": true,
+      "opacity": 0.85,
+      "x": -200,
+      "y": 1580,
+      "width": 1600,
+      "height": 60,
+      "rotation": 5,
+      "shape": "rect",
+      "fill": "#ff0055"
+    },
+    {
+      "id": "03fdon",
+      "name": "splat-1",
+      "type": "shape",
+      "visible": true,
+      "opacity": 1,
+      "x": 50,
+      "y": 1200,
+      "width": 200,
+      "height": 200,
+      "shape": "circle",
+      "fill": "#ff005533"
+    },
+    {
+      "id": "mhfjqj",
+      "name": "splat-2",
+      "type": "shape",
+      "visible": true,
+      "opacity": 1,
+      "x": 850,
+      "y": 300,
+      "width": 120,
+      "height": 120,
+      "shape": "circle",
+      "fill": "#ff005522"
+    }
+  ],
+  "created_at": "2026-03-21T09:40:41.192227-04:00",
+  "updated_at": "2026-03-21T09:43:04.472241-04:00"
+}
