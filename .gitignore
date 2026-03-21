@@ -1,0 +1,23 @@
+# Binary
+mkimg
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Test/generated output
+*.png
+*.jpg
+*.jpeg
+!testing/**/*.png
+!testing/**/*.jpg
+
+# Project files in repo root (testing only)
+*.mkimg.json
+!testing/**/*.mkimg.json
