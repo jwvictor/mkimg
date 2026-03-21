@@ -1,3 +1,18 @@
+---
+name: mkimg
+version: 1.0.0
+description: "CLI image editor and generator for ad creatives, social media graphics, and visual content."
+metadata:
+  openclaw:
+    category: "creative"
+    emoji: "🖼️"
+    requires:
+      bins: ["mkimg"]
+      env: ["GEMINI_API_KEY"]
+    install:
+      go: "github.com/jwvictor/mkimg@latest"
+---
+
 # mkimg
 
 A CLI image editor and generator for creating ad creatives, social media graphics, and visual content. Works through a declarative JSON project format (`.mkimg.json`) with compositable layers, filters, and AI generation.
