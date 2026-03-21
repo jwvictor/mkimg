@@ -66,7 +66,7 @@ Works with [Claude Code](https://claude.com/claude-code), [OpenClaw](https://git
 
 ## How It Works
 
-mkimg uses a declarative JSON project format (`.mkimg.json`). Each project has a canvas (dimensions + background color) and an ordered stack of compositable layers. Commands auto-detect the project file in your working directory.
+mkimg uses a declarative JSON project format (`_mkimg.json`). Each project has a canvas (dimensions + background color) and an ordered stack of compositable layers. Commands auto-detect the project file in your working directory.
 
 ### Layer Types
 

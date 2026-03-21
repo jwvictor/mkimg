@@ -417,9 +417,6 @@ var layerDuplicateCmd = &cobra.Command{
 }
 
 func init() {
-	// Persistent flag for project file
-	layerCmd.PersistentFlags().StringP("project", "p", "", "Project file (auto-detected if omitted)")
-
 	// Add subcommands
 	layerCmd.AddCommand(layerAddCmd)
 	layerCmd.AddCommand(layerListCmd)
@@ -488,15 +485,9 @@ func init() {
 }
 
 func loadProject(cmd *cobra.Command) (*project.Project, error) {
-	path, _ := cmd.Flags().GetString("project")
+	path, _ := cmd.Root().Flags().GetString("project")
 	if path != "" {
 		return project.Load(path)
-	}
-	// Walk up to find project flag on parent
-	for p := cmd.Parent(); p != nil; p = p.Parent() {
-		if f := p.Flags().Lookup("project"); f != nil && f.Value.String() != "" {
-			return project.Load(f.Value.String())
-		}
 	}
 	return project.FindProject()
 }

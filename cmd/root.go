@@ -32,4 +32,5 @@ func Execute() {
 
 func init() {
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
+	rootCmd.PersistentFlags().StringP("project", "p", "", "Project file (auto-detected if omitted)")
 }

@@ -76,13 +76,9 @@ var resizeCmd = &cobra.Command{
 }
 
 func init() {
-	infoCmd.Flags().StringP("project", "p", "", "Project file")
-	dumpCmd.Flags().StringP("project", "p", "", "Project file")
-
 	resizeCmd.Flags().Int("width", 0, "New width")
 	resizeCmd.Flags().Int("height", 0, "New height")
 	resizeCmd.Flags().String("bg", "", "New background color")
-	resizeCmd.Flags().StringP("project", "p", "", "Project file")
 
 	rootCmd.AddCommand(infoCmd)
 	rootCmd.AddCommand(dumpCmd)

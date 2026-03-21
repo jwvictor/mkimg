@@ -14,11 +14,11 @@ metadata:
 
 # mkimg
 
-A CLI image editor and generator for creating ad creatives, social media graphics, and visual content. Works through a declarative JSON project format (`.mkimg.json`) with compositable layers, filters, and AI generation.
+A CLI image editor and generator for creating ad creatives, social media graphics, and visual content. Works through a declarative JSON project format (`_mkimg.json`) with compositable layers, filters, and AI generation.
 
 ## Core Concepts
 
-- **Project** — A `.mkimg.json` file containing canvas dimensions, background color, and an ordered list of layers. Commands auto-detect this file in the current directory.
+- **Project** — A `_mkimg.json` file containing canvas dimensions, background color, and an ordered list of layers. Commands auto-detect this file in the current directory.
 - **Canvas** — The output image dimensions and background color.
 - **Layer** — A compositable visual element. Types: `solid`, `image`, `text`, `shape`, `gradient`, `ai`, `icon`. Each layer has an auto-generated 6-char ID, position (x/y), dimensions, opacity, rotation, visibility, and type-specific properties.
 - **Filter** — A post-processing effect applied to a layer (blur, brightness, sepia, vignette, etc.).

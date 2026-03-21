@@ -146,10 +146,6 @@ func init() {
 	filterCmd.Flags().Float64("r2", 255, "Duotone highlight red")
 	filterCmd.Flags().Float64("g2", 200, "Duotone highlight green")
 	filterCmd.Flags().Float64("b2", 100, "Duotone highlight blue")
-	filterCmd.Flags().StringP("project", "p", "", "Project file")
-
-	filterRemoveCmd.Flags().StringP("project", "p", "", "Project file")
-
 	rootCmd.AddCommand(filterCmd)
 	rootCmd.AddCommand(filterListCmd)
 	rootCmd.AddCommand(filterRemoveCmd)

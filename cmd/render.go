@@ -87,9 +87,6 @@ func openFile(path string) {
 func init() {
 	renderCmd.Flags().StringP("output", "o", "", "Output file path (default: <project>.png)")
 	renderCmd.Flags().Bool("open", false, "Open the image after rendering")
-	renderCmd.Flags().StringP("project", "p", "", "Project file")
-
-	previewCmd.Flags().StringP("project", "p", "", "Project file")
 
 	rootCmd.AddCommand(renderCmd)
 	rootCmd.AddCommand(previewCmd)

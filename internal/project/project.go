@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	FileExtension = ".mkimg.json"
+	FileExtension = "_mkimg.json"
 	Version       = "1"
 )
 
@@ -176,7 +176,7 @@ func Load(path string) (*Project, error) {
 	return &p, nil
 }
 
-// FindProject looks for a .mkimg.json file in the current directory.
+// FindProject looks for a _mkimg.json file in the current directory.
 func FindProject() (*Project, error) {
 	entries, err := os.ReadDir(".")
 	if err != nil {
@@ -190,7 +190,7 @@ func FindProject() (*Project, error) {
 			}
 		}
 	}
-	return nil, fmt.Errorf("no .mkimg.json project file found in current directory")
+	return nil, fmt.Errorf("no _mkimg.json project file found in current directory")
 }
 
 // GenerateID creates a short random ID for layers.

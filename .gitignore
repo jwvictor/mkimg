@@ -22,5 +22,5 @@ dist/
 !testing/**/*.jpg
 
 # Project files in repo root (testing only)
-*.mkimg.json
-!testing/**/*.mkimg.json
+*_mkimg.json
+!testing/**/*_mkimg.json
