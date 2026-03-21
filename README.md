@@ -1,5 +1,7 @@
 # mkimg
 
+**Canva for your AI agent.**
+
 A command-line image editor for creating ad creatives, social media graphics, and visual content. Compose layers, apply filters, generate images with AI, pull in Google Fonts and icon libraries — all from your terminal.
 
 mkimg ships with a **skill file** that lets AI coding agents — [Claude Code](https://claude.com/claude-code), [OpenClaw](https://github.com/jwvictor/openclaw), and any agent that supports skills — drive it autonomously. Tell your agent "make me an Instagram story for a summer sale" and it knows every command, flag, and workflow.
