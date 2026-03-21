@@ -8,7 +8,6 @@ metadata:
     emoji: "🖼️"
     requires:
       bins: ["mkimg"]
-      env: ["GEMINI_API_KEY"]
     install:
       go: "github.com/jwvictor/mkimg@latest"
 ---
