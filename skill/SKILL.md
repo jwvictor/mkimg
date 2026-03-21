@@ -1,6 +1,6 @@
 ---
 name: mkimg
-version: 1.0.0
+version: 0.1.0
 description: "CLI image editor and generator for ad creatives, social media graphics, and visual content."
 metadata:
   openclaw:
