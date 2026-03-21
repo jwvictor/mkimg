@@ -1,6 +1,9 @@
 # Binary
 mkimg
 
+# Release artifacts
+dist/
+
 # OS
 .DS_Store
 
