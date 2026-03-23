@@ -470,6 +470,82 @@ func TestRenderImageFitModes(t *testing.T) {
 	}
 }
 
+func TestRenderImageCrop(t *testing.T) {
+	dir := t.TempDir()
+
+	// Create a 40x40 image: left half red, right half blue
+	testImg := image.NewNRGBA(image.Rect(0, 0, 40, 40))
+	for y := 0; y < 40; y++ {
+		for x := 0; x < 20; x++ {
+			testImg.SetNRGBA(x, y, color.NRGBA{255, 0, 0, 255})
+		}
+		for x := 20; x < 40; x++ {
+			testImg.SetNRGBA(x, y, color.NRGBA{0, 0, 255, 255})
+		}
+	}
+	imgPath := filepath.Join(dir, "split.png")
+	f, _ := os.Create(imgPath)
+	png.Encode(f, testImg)
+	f.Close()
+
+	// Crop only the right half (blue region)
+	p := project.New("test", 100, 100, "#000000")
+	p.AddLayer(project.Layer{
+		Type: "image", Source: imgPath, Fit: "none",
+		CropX: 20, CropY: 0, CropWidth: 20, CropHeight: 40,
+	})
+
+	img, err := Render(p)
+	if err != nil {
+		t.Fatalf("Render with crop: %v", err)
+	}
+
+	// The cropped region should be blue
+	_, _, b, _ := img.At(10, 20).RGBA()
+	r, _, _, _ := img.At(10, 20).RGBA()
+	if uint8(b>>8) < 200 {
+		t.Errorf("Cropped region should be blue, got B=%d", uint8(b>>8))
+	}
+	if uint8(r>>8) > 50 {
+		t.Errorf("Cropped region should have no red, got R=%d", uint8(r>>8))
+	}
+}
+
+func TestRenderImageCropThenResize(t *testing.T) {
+	dir := t.TempDir()
+
+	// Create 100x100 green image
+	testImg := image.NewNRGBA(image.Rect(0, 0, 100, 100))
+	for y := 0; y < 100; y++ {
+		for x := 0; x < 100; x++ {
+			testImg.SetNRGBA(x, y, color.NRGBA{0, 255, 0, 255})
+		}
+	}
+	imgPath := filepath.Join(dir, "green.png")
+	f, _ := os.Create(imgPath)
+	png.Encode(f, testImg)
+	f.Close()
+
+	// Crop a 50x50 region, then resize to 80x80
+	p := project.New("test", 200, 200, "#000000")
+	p.AddLayer(project.Layer{
+		Type: "image", Source: imgPath, Fit: "fill",
+		CropX: 10, CropY: 10, CropWidth: 50, CropHeight: 50,
+		Width: 80, Height: 80,
+	})
+
+	img, err := Render(p)
+	if err != nil {
+		t.Fatalf("Render crop+resize: %v", err)
+	}
+
+	// Center of the placed image (40,40) should be green
+	_, g, _, _ := img.At(40, 40).RGBA()
+	if uint8(g>>8) < 200 {
+		t.Errorf("Crop+resize center G: got %d, want ~255", uint8(g>>8))
+	}
+}
+
 func TestRenderImageMissingSource(t *testing.T) {
 	p := project.New("test", 50, 50, "#000")
 	p.AddLayer(project.Layer{Type: "image", Source: ""})

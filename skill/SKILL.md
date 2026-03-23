@@ -78,7 +78,7 @@ mkimg layer duplicate <id>        # Clone
 | Type       | Flags                                                                 |
 |------------|-----------------------------------------------------------------------|
 | `solid`    | `--color`                                                             |
-| `image`    | `--src`, `--fit` (cover/contain/fill/none)                            |
+| `image`    | `--src`, `--fit` (cover/contain/fill/none), `--crop-x`, `--crop-y`, `--crop-width`, `--crop-height` |
 | `text`     | `--content`, `--font`, `--size`, `--color`, `--align`, `--max-width`, `--line-height`, `--shadow` |
 | `shape`    | `--shape` (rect/circle/ellipse/line), `--fill`, `--radius`, `--stroke-color`, `--stroke-width` |
 | `gradient` | `--gradient-type` (linear/radial/conic), `--from`, `--to`, `--angle`, `--stops` |
@@ -86,6 +86,8 @@ mkimg layer duplicate <id>        # Clone
 | `icon`     | `--icon-name`, `--collection` (material/fontawesome), `--size`, `--color` |
 
 **Common flags** (all layer types): `--name`, `--x`, `--y`, `--width`, `--height`, `--opacity`, `--rotation`
+
+**Cropping images:** Use `--crop-x`, `--crop-y`, `--crop-width`, `--crop-height` on `image` layers to extract a region from the source image before any fit/resize. Coordinates are in source image pixels. For example, `--crop-x 100 --crop-y 50 --crop-width 400 --crop-height 300` extracts a 400x300 region starting at (100, 50).
 
 ### Rendering
 

@@ -39,6 +39,7 @@ func TestNewProjectRoundTrip(t *testing.T) {
 	p.AddLayer(Layer{
 		Type: "image", Source: "/tmp/test.png", Fit: "cover",
 		Width: 300, Height: 200,
+		CropX: 10, CropY: 20, CropWidth: 100, CropHeight: 80,
 	})
 	p.AddLayer(Layer{
 		Type: "ai", AIPrompt: "a cat", AspectRatio: "16:9",
@@ -108,6 +109,12 @@ func TestNewProjectRoundTrip(t *testing.T) {
 	}
 	if textLayer.Rotation != 15 {
 		t.Errorf("Text layer rotation: got %f, want 15", textLayer.Rotation)
+	}
+
+	imgLayer := loaded.Layers[4]
+	if imgLayer.CropX != 10 || imgLayer.CropY != 20 || imgLayer.CropWidth != 100 || imgLayer.CropHeight != 80 {
+		t.Errorf("Image layer crop mismatch: got (%f,%f,%f,%f), want (10,20,100,80)",
+			imgLayer.CropX, imgLayer.CropY, imgLayer.CropWidth, imgLayer.CropHeight)
 	}
 
 	shapeLayer := loaded.Layers[2]

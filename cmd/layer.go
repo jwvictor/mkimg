@@ -67,6 +67,10 @@ Examples:
 				return fmt.Errorf("--src required for image layer")
 			}
 			layer.Fit, _ = cmd.Flags().GetString("fit")
+			layer.CropX, _ = cmd.Flags().GetFloat64("crop-x")
+			layer.CropY, _ = cmd.Flags().GetFloat64("crop-y")
+			layer.CropWidth, _ = cmd.Flags().GetFloat64("crop-width")
+			layer.CropHeight, _ = cmd.Flags().GetFloat64("crop-height")
 
 		case "text":
 			layer.Content, _ = cmd.Flags().GetString("content")
@@ -340,6 +344,18 @@ var layerEditCmd = &cobra.Command{
 		if cmd.Flags().Changed("src") {
 			layer.Source, _ = cmd.Flags().GetString("src")
 		}
+		if cmd.Flags().Changed("crop-x") {
+			layer.CropX, _ = cmd.Flags().GetFloat64("crop-x")
+		}
+		if cmd.Flags().Changed("crop-y") {
+			layer.CropY, _ = cmd.Flags().GetFloat64("crop-y")
+		}
+		if cmd.Flags().Changed("crop-width") {
+			layer.CropWidth, _ = cmd.Flags().GetFloat64("crop-width")
+		}
+		if cmd.Flags().Changed("crop-height") {
+			layer.CropHeight, _ = cmd.Flags().GetFloat64("crop-height")
+		}
 		if cmd.Flags().Changed("fill") {
 			layer.Fill, _ = cmd.Flags().GetString("fill")
 		}
@@ -440,6 +456,10 @@ func init() {
 	addLayerFlags.String("color", "", "Color (hex)")
 	addLayerFlags.String("src", "", "Image source path")
 	addLayerFlags.String("fit", "", "Image fit: cover, contain, fill, none")
+	addLayerFlags.Float64("crop-x", 0, "Crop region X offset in source image")
+	addLayerFlags.Float64("crop-y", 0, "Crop region Y offset in source image")
+	addLayerFlags.Float64("crop-width", 0, "Crop region width in source image")
+	addLayerFlags.Float64("crop-height", 0, "Crop region height in source image")
 	addLayerFlags.String("content", "", "Text content")
 	addLayerFlags.String("font", "", "Font family")
 	addLayerFlags.Float64("size", 0, "Font size / icon size")
@@ -479,6 +499,10 @@ func init() {
 	editFlags.String("font", "", "Font family")
 	editFlags.Float64("size", 0, "Font size")
 	editFlags.String("src", "", "Image source")
+	editFlags.Float64("crop-x", 0, "Crop region X offset")
+	editFlags.Float64("crop-y", 0, "Crop region Y offset")
+	editFlags.Float64("crop-width", 0, "Crop region width")
+	editFlags.Float64("crop-height", 0, "Crop region height")
 	editFlags.String("fill", "", "Fill color")
 
 	rootCmd.AddCommand(layerCmd)
