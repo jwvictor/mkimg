@@ -13,7 +13,7 @@ set -eu
 REPO="jwvictor/mkimg"
 INSTALL_DIR="/usr/local/bin"
 BINARY_NAME="mkimg"
-SKILL_DIR="${HOME}/.claude/skills/mkimg"
+SKILL_NAME="mkimg"
 
 # ── Helpers ──────────────────────────────────────────────────────
 
@@ -85,14 +85,43 @@ install_binary() {
 install_skill() {
   VERSION="$1"
   SKILL_URL="https://raw.githubusercontent.com/${REPO}/${VERSION}/skill/SKILL.md"
+  INSTALLED=0
 
-  log "Installing AI agent skill..."
-  mkdir -p "$SKILL_DIR"
-  curl -fsSL "$SKILL_URL" -o "${SKILL_DIR}/SKILL.md" || {
+  # Download skill file to a temp location first
+  SKILL_TMP=$(mktemp)
+  curl -fsSL "$SKILL_URL" -o "$SKILL_TMP" || {
     log "Warning: could not download skill file (mkimg will still work, but AI agents won't have the skill)"
+    rm -f "$SKILL_TMP"
     return
   }
-  log "Skill installed to ${SKILL_DIR}/SKILL.md"
+
+  # Install to ~/.claude/skills if ~/.claude exists
+  if [ -d "${HOME}/.claude" ]; then
+    SKILL_DIR="${HOME}/.claude/skills/${SKILL_NAME}"
+    mkdir -p "$SKILL_DIR"
+    cp "$SKILL_TMP" "${SKILL_DIR}/SKILL.md"
+    log "Skill installed to ${SKILL_DIR}/SKILL.md"
+    INSTALLED=1
+  fi
+
+  # Install to ~/.openclaw/skills if ~/.openclaw exists
+  if [ -d "${HOME}/.openclaw" ]; then
+    SKILL_DIR="${HOME}/.openclaw/skills/${SKILL_NAME}"
+    mkdir -p "$SKILL_DIR"
+    cp "$SKILL_TMP" "${SKILL_DIR}/SKILL.md"
+    log "Skill installed to ${SKILL_DIR}/SKILL.md"
+    INSTALLED=1
+  fi
+
+  # If neither exists, default to ~/.claude
+  if [ "$INSTALLED" -eq 0 ]; then
+    SKILL_DIR="${HOME}/.claude/skills/${SKILL_NAME}"
+    mkdir -p "$SKILL_DIR"
+    cp "$SKILL_TMP" "${SKILL_DIR}/SKILL.md"
+    log "Skill installed to ${SKILL_DIR}/SKILL.md"
+  fi
+
+  rm -f "$SKILL_TMP"
 }
 
 # ── Main ────────────────────────────────────────────────────────
