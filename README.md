@@ -22,11 +22,22 @@ Both created entirely from the command line with mkimg.
 
 ## Install
 
+### Download a release (recommended)
+
+Grab the latest binary for your platform from [GitHub Releases](https://github.com/jwvictor/mkimg/releases), then:
+
+```bash
+tar -xzf mkimg_*_darwin_arm64.tar.gz   # or your platform
+sudo install -m 755 mkimg /usr/local/bin/mkimg
+```
+
+### Install with Go
+
 ```bash
 go install github.com/jwvictor/mkimg@latest
 ```
 
-Or build and install everything (binary + AI agent skill) from source:
+### Build from source (binary + AI agent skill)
 
 ```bash
 git clone https://github.com/jwvictor/mkimg.git
@@ -35,13 +46,6 @@ cd mkimg
 ```
 
 This builds the binary to `/usr/local/bin/mkimg` and installs the skill file to `~/.claude/skills/mkimg/` so Claude Code and compatible agents can use it immediately.
-
-To install just the binary without the skill:
-
-```bash
-go build -o mkimg .
-sudo install -m 755 mkimg /usr/local/bin/mkimg
-```
 
 ## Quick Start
 
