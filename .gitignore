@@ -18,6 +18,8 @@ dist/
 *.png
 *.jpg
 *.jpeg
+!examples/**/*.png
+!examples/**/*.jpg
 !testing/**/*.png
 !testing/**/*.jpg
 

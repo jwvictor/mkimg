@@ -12,10 +12,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"mkimg/internal/effects"
-	"mkimg/internal/fonts"
-	"mkimg/internal/icons"
-	"mkimg/internal/project"
+	"github.com/jwvictor/mkimg/internal/effects"
+	"github.com/jwvictor/mkimg/internal/fonts"
+	"github.com/jwvictor/mkimg/internal/icons"
+	"github.com/jwvictor/mkimg/internal/project"
 
 	"github.com/disintegration/imaging"
 	"github.com/fogleman/gg"

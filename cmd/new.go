@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"mkimg/internal/presets"
-	"mkimg/internal/project"
+	"github.com/jwvictor/mkimg/internal/presets"
+	"github.com/jwvictor/mkimg/internal/project"
 
 	"github.com/spf13/cobra"
 )

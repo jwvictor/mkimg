@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"mkimg/internal/project"
+	"github.com/jwvictor/mkimg/internal/project"
 )
 
 // --- parseHexColor ---

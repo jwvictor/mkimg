@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"runtime"
 
-	"mkimg/internal/engine"
+	"github.com/jwvictor/mkimg/internal/engine"
 
 	"github.com/spf13/cobra"
 )

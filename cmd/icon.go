@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"mkimg/internal/icons"
+	"github.com/jwvictor/mkimg/internal/icons"
 
 	"github.com/spf13/cobra"
 )

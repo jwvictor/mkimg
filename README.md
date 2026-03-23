@@ -6,6 +6,20 @@ A command-line image editor for creating ad creatives, social media graphics, an
 
 mkimg ships with a **skill file** that lets AI coding agents — [Claude Code](https://claude.com/claude-code), [OpenClaw](https://github.com/jwvictor/openclaw), and any agent that supports skills — drive it autonomously. Tell your agent "make me an Instagram story for a summer sale" and it knows every command, flag, and workflow.
 
+## Examples
+
+<p align="center">
+  <img src="examples/punk-shoes-ad.png" alt="Punk shoes ad — AI-generated product image with text, shapes, gradients, and filters" width="300" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="examples/summer-sale.png" alt="Summer sale promo — gradient background with text and shape layers" width="300" />
+</p>
+
+<p align="center">
+  <em>Left: AI-generated product ad with 9 layers, filters, and custom fonts. Right: Simple promo with gradient, text, and shape layers.</em>
+</p>
+
+Both created entirely from the command line with mkimg.
+
 ## Install
 
 ```bash

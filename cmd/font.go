@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"mkimg/internal/fonts"
+	"github.com/jwvictor/mkimg/internal/fonts"
 
 	"github.com/spf13/cobra"
 )

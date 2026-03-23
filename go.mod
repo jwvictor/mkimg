@@ -1,4 +1,4 @@
-module mkimg
+module github.com/jwvictor/mkimg
 
 go 1.25.6
 

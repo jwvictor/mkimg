@@ -1,6 +1,6 @@
 package main
 
-import "mkimg/cmd"
+import "github.com/jwvictor/mkimg/cmd"
 
 func main() {
 	cmd.Execute()

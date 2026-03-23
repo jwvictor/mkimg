@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"mkimg/internal/ai"
-	"mkimg/internal/project"
+	"github.com/jwvictor/mkimg/internal/ai"
+	"github.com/jwvictor/mkimg/internal/project"
 
 	"github.com/spf13/cobra"
 )

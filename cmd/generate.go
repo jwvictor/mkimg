@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"mkimg/internal/ai"
+	"github.com/jwvictor/mkimg/internal/ai"
 
 	"github.com/spf13/cobra"
 )

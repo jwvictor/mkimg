@@ -53,7 +53,7 @@ for platform in "${PLATFORMS[@]}"; do
 
   # Cross-compile
   GOOS="$OS" GOARCH="$ARCH" CGO_ENABLED=0 \
-    go build -ldflags="-s -w -X mkimg/cmd.version=${VERSION}" \
+    go build -ldflags="-s -w -X github.com/jwvictor/mkimg/cmd.version=${VERSION}" \
     -o "${DIST_DIR}/${BINARY_NAME}" .
 
   # Create tarball

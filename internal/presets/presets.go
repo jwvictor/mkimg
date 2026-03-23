@@ -1,6 +1,6 @@
 package presets
 
-import "mkimg/internal/project"
+import "github.com/jwvictor/mkimg/internal/project"
 
 // Preset defines a canvas template with optional starter layers.
 type Preset struct {
