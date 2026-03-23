@@ -206,8 +206,23 @@ func renderImage(layer *project.Layer, canvasW, canvasH int) (image.Image, error
 		return nil, fmt.Errorf("open image %s: %w", layer.Source, err)
 	}
 
-	w := intOrDefault(layer.Width, float64(img.Bounds().Dx()))
-	h := intOrDefault(layer.Height, float64(img.Bounds().Dy()))
+	// Apply crop to source image before any fit/resize
+	if layer.CropWidth > 0 && layer.CropHeight > 0 {
+		cx := int(layer.CropX)
+		cy := int(layer.CropY)
+		cw := int(layer.CropWidth)
+		ch := int(layer.CropHeight)
+		img = imaging.Crop(img, image.Rect(cx, cy, cx+cw, cy+ch))
+	}
+
+	// For cover/contain/fill, default to canvas dimensions if not specified.
+	// For other modes, default to source image dimensions.
+	defaultW, defaultH := float64(img.Bounds().Dx()), float64(img.Bounds().Dy())
+	if layer.Fit == "cover" || layer.Fit == "contain" || layer.Fit == "fill" {
+		defaultW, defaultH = float64(canvasW), float64(canvasH)
+	}
+	w := intOrDefault(layer.Width, defaultW)
+	h := intOrDefault(layer.Height, defaultH)
 
 	switch layer.Fit {
 	case "cover":
