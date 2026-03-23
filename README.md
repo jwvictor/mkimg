@@ -47,7 +47,7 @@ This downloads the latest binary for your platform and installs the AI agent ski
 mkimg new summer-sale --preset instagram-story --bg "#1a1a2e"
 
 # Build up layers
-mkimg layer add gradient --from "#e94560" --to "#f5a623" --angle 160
+mkimg layer add gradient --from "#e94560" --to "#f5a623" --angle 160 --name bg
 mkimg font install Anton
 mkimg layer add text --content "SUMMER SALE" --font Anton --size 120 \
   --color "#ffffff" --align center --x 540 --y 400
@@ -55,7 +55,7 @@ mkimg layer add shape --shape circle --fill "#ffffff22" \
   --width 300 --height 300 --x 390 --y 800
 
 # Apply effects
-mkimg filter <gradient-id> vignette --strength 0.5
+mkimg filter bg vignette --strength 0.5
 
 # Render
 mkimg render -o summer-sale.png --open

@@ -75,6 +75,12 @@ type Layer struct {
 	AIPrompt    string `json:"ai_prompt,omitempty"`     // for AI-generated layers
 	AspectRatio string `json:"aspect_ratio,omitempty"`  // for AI generation
 
+	// Crop (applied to source image before fit/resize)
+	CropX      float64 `json:"crop_x,omitempty"`
+	CropY      float64 `json:"crop_y,omitempty"`
+	CropWidth  float64 `json:"crop_width,omitempty"`
+	CropHeight float64 `json:"crop_height,omitempty"`
+
 	// Text
 	Content    string  `json:"content,omitempty"`
 	Font       string  `json:"font,omitempty"`
@@ -229,10 +235,17 @@ func (p *Project) RemoveLayer(id string) error {
 	return fmt.Errorf("layer %q not found", id)
 }
 
-// GetLayer returns a pointer to a layer by ID.
+// GetLayer returns a pointer to a layer by ID or name.
+// It checks IDs first, then falls back to matching by name.
 func (p *Project) GetLayer(id string) *Layer {
 	for i := range p.Layers {
 		if p.Layers[i].ID == id {
+			return &p.Layers[i]
+		}
+	}
+	// Fallback: match by name
+	for i := range p.Layers {
+		if p.Layers[i].Name == id {
 			return &p.Layers[i]
 		}
 	}
