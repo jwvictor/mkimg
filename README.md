@@ -11,11 +11,11 @@ mkimg ships with a **skill file** that lets AI coding agents — [Claude Code](h
 <p align="center">
   <img src="examples/punk-shoes-ad.png" alt="Punk shoes ad — AI-generated product image with text, shapes, gradients, and filters" width="300" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="examples/summer-sale.png" alt="Neon promo — glowing orbs, geometric accents, bold typography on dark background" width="300" />
+  <img src="examples/summer-sale.png" alt="Film noir poster — AI-generated scene with pixelated head, duotone filters, and composited sub-images" width="300" />
 </p>
 
 <p align="center">
-  <em>Left: AI-generated product ad with 9 layers, filters, and custom fonts. Right: Neon promo with blurred glows, geometric accents, and bold typography — 13 layers, no AI needed.</em>
+  <em>Left: AI-generated product ad with 9 layers, filters, and custom fonts. Right: Film noir poster with pixelated duotone head, composited sub-images, and 23 layers of effects.</em>
 </p>
 
 Both created entirely from the command line with mkimg.
